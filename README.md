@@ -15,13 +15,13 @@ Get started by creating a new file or uploading an existing file. We recommend e
 git init
 git add README.md
 git commit -m "first commit"
-git remote add origin https://github.com/P1100/MyCode.git
+git remote add origin https://github.com/P1100/MySynchedCode.git
 git push -u origin master
 ```
 
 …or push an existing repository from the command line
 ```
-git remote add origin https://github.com/P1100/MyCode.git
+git remote add origin https://github.com/P1100/MySynchedCode.git
 git push -u origin master
 ```
 …or import code from another repository
