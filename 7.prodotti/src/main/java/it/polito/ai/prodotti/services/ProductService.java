@@ -8,13 +8,17 @@ import java.util.List;
 public interface ProductService {
     List<ProductDTO> getProducts();
 
+    ProductDTO getProduct(String id);
+
     void addProduct(ProductDTO productDTO);
 
     Long getAvailableProducts(String id);
 
     void removeProduct(String id);
 
-    List<ProductDTO> getProductByIngredient(IngredientDTO ingredientDTO);
+    List<IngredientDTO> getIngredients(String id);
+
+    List<ProductDTO> getProductsByIngredient(String ingredientId);
 
     void produce(ProductDTO productDTO, long n);
 
