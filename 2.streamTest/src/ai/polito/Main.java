@@ -55,4 +55,35 @@ public class Main {
         //System.out.println(s3.reduce(0.0, (a, b) -> a+b));
         System.out.println(s3.reduce("", (a, b) -> a + " " + b, (a, b) -> a + " " + b));
     }
+    /*   ---> Pezzidi lambda usati in altri progetti!!!
+    
+    @GetMapping("/")
+    public String home() {
+        return timesStampSerice.getTimestamp() + data.stream().collect(Collectors.joining(" - "));
+    }
+    public List<ProductDTO> getProducts() {
+        return productRepository.findAll()
+                .stream()
+                .map(p -> modelMapper.map(p, ProductDTO.class))
+                .collect(Collectors.toList());
+    }
+    public List<IngredientDTO> getIngredients(String id) {
+        ProductEntity p = productRepository.getOne(id);
+        if (p == null)
+            return null;
+        else
+            return p.getIngredientEntities()
+                    .stream()
+                    .map(i -> modelMapper.map(i, IngredientDTO.class))
+                    .collect(Collectors.toList());
+    }
+    public List<ProductDTO> getProductsByIngredient(String ingredientId) {
+        IngredientEntity ingredientEntity = ingredientRepository.getOne(ingredientId);
+        if (ingredientEntity == null)
+            return null;
+        return productRepository.getByIngredientEntitiesContaining(ingredientEntity)
+                .stream()
+                .map(p -> modelMapper.map(p, ProductDTO.class))
+                .collect(Collectors.toList());
+    */
 }
