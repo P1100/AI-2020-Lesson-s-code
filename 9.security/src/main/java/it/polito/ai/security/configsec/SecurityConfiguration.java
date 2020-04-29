@@ -23,6 +23,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   //configura gli utenti e i ruoli
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//    auth.userDetailsService(parametro_da_autowired_db_related);
     auth.inMemoryAuthentication()
         .withUser("Tizio")
         .password(encoder().encode("Alfa"))
@@ -40,7 +41,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   //configura le URL da proteggere
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.authorizeRequests()
+    http.cors().disable() // inpiccio in fase di development, da abilitare in produzione. Cors si applica solo se c'è un browser client side
+        .csrf().disable()
+        .authorizeRequests()
         .antMatchers("/admin/**").hasRole("ADMIN")
         .antMatchers("/**").hasRole("user")
 //        .antMatchers("/", "index.html").permitAll()
@@ -48,13 +51,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .and()
         //chiedo a spring security di creare pagina di login (tutta la struttura)
         .formLogin() // crea un controllore per l'accesso
-//      ---> parametri facoltativi per formLogin [NOT WORKING!]
         // default is username (nome elemento input html)
         .usernameParameter("custom_user")
         // default is password
-        .passwordParameter("custom_pass");
+        .passwordParameter("custom_pass")
+        .and().sessionManagement().disable();
 /*
-        // ---> part below NOT WORKING!
+        // ---> part below NOT WORKING !?
         // default is /login with an HTTP get
         .loginPage("/auth/login")
         // default is /login?error
@@ -62,7 +65,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // default is /login with an HTTP post;
         .loginProcessingUrl("/auth/login/process");
 */
-  
   }
   
   //configura la catena dei filtri di sicurezza

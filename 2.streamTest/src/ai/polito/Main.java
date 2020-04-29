@@ -56,6 +56,10 @@ public class Main {
         System.out.println(s3.reduce("", (a, b) -> a + " " + b, (a, b) -> a + " " + b));
     }
     /*   ---> Pezzidi lambda usati in altri progetti!!!
+        @Bean
+    public List<String> items(Date date_loaded_from_bean_last) {
+        return Stream.of("alfa","beta","gamma", date_loaded_from_bean_last.toString()).collect(Collectors.toList());
+    }
     
     @GetMapping("/")
     public String home() {
