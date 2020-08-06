@@ -1,5 +1,5 @@
-# MySynchedCode
-##### Applicazioni internet - codice mostrato a lezione, parte server
+# Applicazioni internet
+#####  Codice mostrato a lezione, parte server
 
 For cleaning all subprojects (maven clean), type this on shell on the main project dir:
 
