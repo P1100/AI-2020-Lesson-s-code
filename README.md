@@ -1,5 +1,5 @@
 # MySynchedCode
-##### My synched code (private), shared between Windows 10 Pro and Ubuntu 18.04 LTS
+##### Applicazioni internet - codice mostrato a lezione, parte server
 
 For cleaning all subprojects (maven clean), type this on shell on the main project dir:
 
